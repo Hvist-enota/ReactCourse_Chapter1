@@ -1,42 +1,168 @@
-#root {
-  max-width: 1280px;
+.todo-app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); /* Синьо-фіолетовий градієнт */
+  transition: background-color 0.3s ease;
+  font-family: "Roboto", sans-serif;
+  padding: 20px;
+}
+
+.todo-container {
+  width: 100%;
+  max-width: 800px;
+  background-color: var(--table-bg);
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  padding: 20px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.todo-table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  width: 100%;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.todo-table {
+  width: 80%;
+  border-collapse: collapse;
+  background-color: var(--table-bg);
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.todo-table th,
+.todo-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.todo-table th {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  text-transform: uppercase;
+}
+
+.todo-table tr:hover {
+  background-color: #e0f7fa; /* Світлий синьо-зелений при наведенні */
+  transition: background-color 0.4s ease;
+}
+
+.todo-table td button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.todo-table td button:hover {
+  background-color: #2196f3; /* Насичений синій */
+  transform: scale(1.05);
+}
+
+.todo-table td button:active {
+  transform: scale(0.95);
+}
+
+/* Пагінація */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  background-color: var(--pagination-bg);
+  color: var(--pagination-text);
+  border-radius: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pagination button:hover {
+  background-color: #1e88e5; /* Трохи темніший синій */
+  transform: scale(1.15);
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination button.active {
+  background-color: #00e676; /* Яскраво-зелений для активної сторінки */
+  color: white;
+  box-shadow: 0 6px 20px rgba(0, 230, 118, 0.6);
+  transform: scale(1.1);
+}
+
+.pagination button:active {
+  background-color: var(--pagination-active-bg);
+  transform: scale(0.9);
+}
+
+.pagination-dots {
+  display: inline-block;
+  padding: 10px 15px;
+  color: var(--pagination-text);
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Світла тема */
+:root {
+  --background-color: #f0f0f0;
+  --table-bg: #ffffff;
+  --item-bg: #ffffff;
+  --border-color: #e0e0e0;
+  --text-color: #333333;
+  --muted-text: #888888;
+  --hover-bg: #e0f7fa;
+  --button-bg: #42a5f5; /* Світло-синій */
+  --button-text: #ffffff;
+  --button-hover-bg: #2196f3;
+  --button-active-bg: #1565c0;
+  --pagination-bg: #42a5f5;
+  --pagination-text: #fff;
+  --pagination-hover-bg: #1e88e5;
+  --pagination-disabled-bg: #ccc;
+  --header-text-color: #444;
+}
+
+/* Темна тема */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #121212;
+    --table-bg: #1e1e1e;
+    --item-bg: #2c2c2c;
+    --border-color: #333333;
+    --text-color: #ffffff;
+    --muted-text: #aaaaaa;
+    --hover-bg: #333333;
+    --button-bg: #7c4dff; /* Фіолетовий */
+    --button-text: #ffffff;
+    --button-hover-bg: #651fff;
+    --button-active-bg: #6200ea;
+    --pagination-bg: #7c4dff;
+    --pagination-text: #ffffff;
+    --pagination-hover-bg: #651fff;
+    --pagination-disabled-bg: #444;
+    --header-text-color: #e6e6e6;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
