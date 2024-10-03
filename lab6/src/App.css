@@ -1,0 +1,164 @@
+.todo-app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6a0dad 0%, #b19cd9 100%); /* Фіолетовий градієнт */
+  transition: background-color 0.3s ease;
+  font-family: "Roboto", sans-serif;
+  padding: 20px;
+}
+
+.todo-container {
+  width: 100%;
+  max-width: 800px;
+  background-color: var(--table-bg);
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.todo-table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  width: 100%;
+}
+
+.todo-table {
+  width: 90%; /* Збільшено ширину для кращого вигляду */
+  border-collapse: collapse;
+  background-color: var(--table-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.todo-table th,
+.todo-table td {
+  padding: 15px 20px; /* Більше простору для тексту */
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 1.1em; /* Збільшено шрифт */
+}
+
+.todo-table th {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  text-transform: uppercase;
+  letter-spacing: 1px; /* Додає більше простору між літерами */
+}
+
+.todo-table tr:hover {
+  background-color: var(--hover-bg);
+}
+
+.todo-table td button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 8px 15px; /* Більш об'ємні кнопки */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.todo-table td button:hover {
+  background-color: var(--button-hover-bg);
+  transform: scale(1.05); /* Легке збільшення при наведенні */
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 12px 18px; /* Більш об'ємні кнопки пагінації */
+  background-color: var(--pagination-bg);
+  color: var(--pagination-text);
+  border-radius: 12px; /* Збільшене закруглення */
+  font-size: 1.3em; /* Трохи більший шрифт */
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pagination button:hover {
+  background-color: var(--pagination-hover-bg);
+  transform: scale(1.1);
+}
+
+.pagination button:disabled {
+  background-color: var(--pagination-disabled-bg);
+  cursor: not-allowed;
+}
+
+.pagination button.active {
+  background-color: #ff4c4c;
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 76, 76, 0.5);
+  transform: scale(1.05);
+}
+
+.pagination button:active {
+  background-color: var(--pagination-active-bg);
+  transform: scale(0.95);
+}
+
+.pagination-dots {
+  display: inline-block;
+  padding: 12px 18px;
+  color: var(--pagination-text);
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+/* Світла тема */
+:root {
+  --background-color: #f0f0f0;
+  --table-bg: #ffffff;
+  --item-bg: #ffffff;
+  --border-color: #e0e0e0;
+  --text-color: #333333;
+  --muted-text: #888888;
+  --hover-bg: #f9f9f9;
+  --button-bg: #6a0dad;
+  --button-text: #ffffff;
+  --button-hover-bg: #b19cd9;
+  --button-active-bg: #e60000;
+  --pagination-bg: #6a0dad;
+  --pagination-text: #fff;
+  --pagination-hover-bg: #b19cd9;
+  --pagination-disabled-bg: #ccc;
+  --header-text-color: #444;
+}
+
+/* Темна тема */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #121212;
+    --table-bg: #1e1e1e;
+    --item-bg: #2c2c2c;
+    --border-color: #333333;
+    --text-color: #ffffff;
+    --muted-text: #aaaaaa;
+    --hover-bg: #333333;
+    --button-bg: #ff4d4d;
+    --button-text: #ffffff;
+    --button-hover-bg: #ff1f1f;
+    --button-active-bg: #e60000;
+    --pagination-bg: #ff4d4d;
+    --pagination-text: #ffffff;
+    --pagination-hover-bg: #ff1f1f;
+    --pagination-disabled-bg: #444;
+    --header-text-color: #e6e6e6;
+  }
+}
